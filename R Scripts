@@ -37,7 +37,8 @@ results
 plot(results)
 
 
-> -  Cutting the dendrogram as K=7 based on Dendrogram observation to generate a vector of the clusters (download the original Dendrogram output image from this Github repository in the top right corner)
+> -  Cutting the dendrogram as K=7 based on Dendrogram observation to generate a vector of the clusters (download from this Github repository in the top right corner the original Dendrogram output image 
+and the one with the 7 clusters delimited with colors)
 
 cluster=cutree(results,k=7)
 
