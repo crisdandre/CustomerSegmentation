@@ -1,0 +1,53 @@
+> -  Inserting table specifying factor variables and their respective levels so that the Gower analysis can differentiate between interval scaled variables (numeric) and nominal variables (factors/levels)
+
+library(readr)
+Warning message:
+package ‘readr’ was built under R version 4.2.3 
+Customer_Data <- read_csv("Power BI/Proyecto 2 - Modeling - clustering/clustering/Customer Data.csv", 
++     col_types = cols(Sex = col_factor(levels = c("Male", 
++         "Female")), Marital_status = col_factor(levels = c("Single", 
++         "Non-single")), Education = col_factor(levels = c("High school", 
++         "University", "Graduate School", 
++         "Other/Unknown")), Occupation = col_factor(levels = c("Unemployed / Unskilled", 
++         "Skilled employee / Official", "Management / Self-employed / Highly qualified employee / Officer")), 
++         Settlement_size = col_factor(levels = c("Small City", 
++             "Big City", "Mid-sized City"))))
+View(Customer_Data)       
+
+
+> - Intalling cluster packcage 
+
+install.packages("cluster")
+library(cluster)
+
+
+> -  Running Gower distance matrix (Column 1 "Customer ID" not included)  
+
+d_Cust=daisy(Customer_Data[,2:6],metric = "gower")
+d_Cust
+
+
+> -  Data Aggregation with Ward's method
+
+results=agnes(d_Cust,method="ward")
+results
+
+
+> -  Dendrogram visualization
+plot(results)
+
+
+> -  Cutting the dendrogram as K=7 based on Dendrogram observation to generate a vector of the clusters (download the original Dendrogram output image from this Github repository in the top right corner)
+
+cluster=cutree(results,k=7)
+
+
+> -  Creating a new table adding the vector of clusters
+
+Customer_Data_cluster7=data.frame(Customer_Data,cluster)
+
+
+> - Exporting resulting dataset as csv to use in Power BI
+
+write.csv(Customer_Data_cluster7, "C:\\Users\\Cristian De Andrade\\Documents\\Power BI\\Proyect 2 - Modeling - clustering\\clusterk7.csv", row.names=FALSE)
+
