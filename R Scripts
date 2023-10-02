@@ -48,7 +48,7 @@ cluster=cutree(results,k=7)
 Customer_Data_cluster7=data.frame(Customer_Data,cluster)
 
 
-> - Exporting resulting dataset as csv to use in Power BI
+> - Exporting dataset as csv to use in Power BI
 
 write.csv(Customer_Data_cluster7, "C:\\Users\\Cristian De Andrade\\Documents\\Power BI\\Proyect 2 - Modeling - clustering\\clusterk7.csv", row.names=FALSE)
 
