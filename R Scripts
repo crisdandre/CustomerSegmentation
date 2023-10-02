@@ -15,7 +15,7 @@ Customer_Data <- read_csv("Power BI/Proyecto 2 - Modeling - clustering/clusterin
 View(Customer_Data)       
 
 
-> - Intalling cluster packcage 
+> - Intalling cluster packcage  
 
 install.packages("cluster")
 library(cluster)
