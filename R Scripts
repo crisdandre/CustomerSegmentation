@@ -1,4 +1,4 @@
---Inserting table specifying factor variables and their respective levels so that the Gower analysis can differentiate between interval scaled variables (numeric) and nominal variables (factors/levels)
+--> Inserting table specifying factor variables and their respective levels so that the Gower analysis can differentiate between interval scaled variables (numeric) and nominal variables (factors/levels)
 
 library(readr)
 Warning message:
@@ -15,40 +15,40 @@ Customer_Data <- read_csv("Power BI/Proyecto 2 - Modeling - clustering/clusterin
 View(Customer_Data)       
 
 
-> - Intalling cluster packcage  
+--> Intalling cluster packcage  
 
 install.packages("cluster")
 library(cluster)
 
 
-> -  Running Gower distance matrix (Column 1 "Customer ID" not included)  
+-->  Running Gower distance matrix (Column 1 "Customer ID" not included)  
 
 d_Cust=daisy(Customer_Data[,2:6],metric = "gower")
 d_Cust
 
 
-> -  Data Aggregation with Ward's method
+-->  Data Aggregation with Ward's method
 
 results=agnes(d_Cust,method="ward")
 results
 
 
-> -  Dendrogram visualization
+-->  Dendrogram visualization
 plot(results)
 
 
-> -  Cutting the dendrogram as K=7 based on Dendrogram observation to generate a vector of the clusters (download from this Github repository -top left corner- the original Dendrogram output image 
+-->  Cutting the dendrogram as K=7 based on Dendrogram observation to generate a vector of the clusters (download from this Github repository -top left corner- the original Dendrogram output image 
 and the one with clusters marked with colors)
 
 cluster=cutree(results,k=7)
 
 
-> -  Creating a new table adding the vector of clusters
+-->  Creating a new table adding the vector of clusters
 
 Customer_Data_cluster7=data.frame(Customer_Data,cluster)
 
 
-> - Exporting dataset as csv to use in Power BI
+--> Exporting dataset as csv to use in Power BI
 
 write.csv(Customer_Data_cluster7, "C:\\Users\\Cristian De Andrade\\Documents\\Power BI\\Proyect 2 - Modeling - clustering\\clusterk7.csv", row.names=FALSE)
 
