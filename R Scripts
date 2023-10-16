@@ -1,4 +1,4 @@
-> -  Inserting table specifying factor variables and their respective levels so that the Gower analysis can differentiate between interval scaled variables (numeric) and nominal variables (factors/levels)
+--Inserting table specifying factor variables and their respective levels so that the Gower analysis can differentiate between interval scaled variables (numeric) and nominal variables (factors/levels)
 
 library(readr)
 Warning message:
