@@ -1,1 +1,1 @@
-# Data Clustering using Gower's distance in R
+# Data Clustering using Gower's distance and Ward method in R
